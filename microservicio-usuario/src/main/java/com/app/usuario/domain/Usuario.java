@@ -29,6 +29,8 @@ public class Usuario {
     private Long dni;
     @Column (name = "ubicacion")
     private String ubicacion;
+    
+    //el user tiene que tener una lista de cuentas asociada
 
     public Usuario(Long idUsuario, String nombreUsuario, String nombre, String apellido, String numeroCelular, String email, Long dni, String ubicacion) {
         this.idUsuario = idUsuario;
