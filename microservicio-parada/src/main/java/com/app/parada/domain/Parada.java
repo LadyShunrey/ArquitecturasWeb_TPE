@@ -28,4 +28,20 @@ public class Parada {
 //	@OneToMany(mappedBy = "parada", cascade = CascadeType.MERGE)
 //	@JsonManagedReference
 //	private List<Monopatin> monopatines;
+	public Parada(Long idParada, String ubicacion) {
+		this.idParada = idParada;
+		this.ubicacion = ubicacion;
+	}
+	public Long getIdParada() {
+		return idParada;
+	}
+	public void setIdParada(Long idParada) {
+		this.idParada = idParada;
+	}
+	public String getUbicacion() {
+		return ubicacion;
+	}
+	public void setUbicacion(String ubicacion) {
+		this.ubicacion = ubicacion;
+	}
 }
