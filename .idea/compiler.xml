@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="microservicio-viaje" />
+        <module name="microservicio-paradas" />
+        <module name="microservicio-mantenimiento" />
+        <module name="microservicio-usuario" />
+        <module name="microservicio-administrador" />
+        <module name="microservicio-pago" />
+        <module name="microservicio-cuenta" />
+        <module name="microservicio-monopatin" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="microservicio-administrador" options="-parameters" />
+      <module name="microservicio-cuenta" options="-parameters" />
+      <module name="microservicio-mantenimiento" options="-parameters" />
+      <module name="microservicio-monopatin" options="-parameters" />
+      <module name="microservicio-pago" options="-parameters" />
+      <module name="microservicio-paradas" options="-parameters" />
+      <module name="microservicio-usuario" options="-parameters" />
+      <module name="microservicio-viaje" options="-parameters" />
+    </option>
+  </component>
+</project>
