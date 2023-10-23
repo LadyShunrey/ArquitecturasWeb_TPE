@@ -36,4 +36,34 @@ public class Cuenta {
 //	@OneToMany(mappedBy = "cuenta", cascade = CascadeType.MERGE)
 //	@JsonManagedReference
 //	private List<Usuario> usuarios;
+	
+	public Cuenta(Long idCuenta, LocalDate fechaAlta, Double dineroDisponible) {
+		this.idCuenta = idCuenta;
+		this.fechaAlta = fechaAlta;
+		this.dineroDisponible = dineroDisponible;
+	}
+
+	public Long getIdCuenta() {
+		return idCuenta;
+	}
+
+	public void setIdCuenta(Long idCuenta) {
+		this.idCuenta = idCuenta;
+	}
+
+	public LocalDate getFechaAlta() {
+		return fechaAlta;
+	}
+
+	public void setFechaAlta(LocalDate fechaAlta) {
+		this.fechaAlta = fechaAlta;
+	}
+
+	public Double getDineroDisponible() {
+		return dineroDisponible;
+	}
+
+	public void setDineroDisponible(Double dineroDisponible) {
+		this.dineroDisponible = dineroDisponible;
+	}
 }

@@ -14,5 +14,6 @@ public interface CuentaRepository extends JpaRepository<Cuenta, Long>{
 	@Query("FROM Cuenta c WHERE c.idCuenta= :idCuenta")
 	public Optional<Cuenta> buscarCuentaPorID(Long idCuenta);
 	
-	
+	@Query("DELETE FROM Cuenta c WHERE c.idCuenta= :idCuenta")
+	public Optional<Cuenta> eliminarCuentaPorID(Long idCuenta);
 }
