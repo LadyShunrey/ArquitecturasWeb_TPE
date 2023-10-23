@@ -14,6 +14,10 @@ public class Monopatin {
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	private Long idMonopatin;
+	@Column(name="kilometros_recorridos")
+	private Double kilometros;
+	@Column(name="tiempo_uso")
+	private Double tiempo;
 	@Column(name="en_mantenimiento")
 	private boolean enMantenimiento;
 	@Column(name = "ubicacion")

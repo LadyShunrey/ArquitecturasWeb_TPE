@@ -33,4 +33,8 @@ public class MonopatinService {
 				.toList();
 
 	}
+
+	public void eliminarMonopatin(Long idMonopatin) {
+		this.monopatinRepository.eliminarMonopatinPorID(idMonopatin);
+	}
 }
