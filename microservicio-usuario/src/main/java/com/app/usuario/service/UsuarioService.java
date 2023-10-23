@@ -46,7 +46,7 @@ public class UsuarioService {
    }
 
    public Optional<UsuarioDTO> buscarPorDni(Long dni){
-       return this.usuarioRepository.buscarPorDni(dni).map(usuario->new UsuarioDTO(usuario.getIdUsuario(), usuario.getNombreUsuario(), usuario.getNombre(), usuario.getApellido(), usuario.getNumeroCelular(), usuario.getEmail(), usuario.getDni()));
+       return this.usuarioRepository.buscarPorDni(dni).map(usuario->new UsuarioDTO(usuario.getIdUsuario(), usuario.getNombreUsuario(), usuario.getNombre(), usuario.getApellido(), usuario.getNumeroCelular(), usuario.getEmail(), usuario.getDni(), usuario.getUbicacion()));
    }
 
 }

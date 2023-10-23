@@ -40,4 +40,70 @@ public class Usuario {
         this.dni = dni;
         this.ubicacion = ubicacion;
     }
+
+	public Long getIdUsuario() {
+		return idUsuario;
+	}
+
+	public String getNombreUsuario() {
+		return nombreUsuario;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public String getApellido() {
+		return apellido;
+	}
+
+	public String getNumeroCelular() {
+		return numeroCelular;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public Long getDni() {
+		return dni;
+	}
+
+	public String getUbicacion() {
+		return ubicacion;
+	}
+
+	public void setIdUsuario(Long idUsuario) {
+		this.idUsuario = idUsuario;
+	}
+
+	public void setNombreUsuario(String nombreUsuario) {
+		this.nombreUsuario = nombreUsuario;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public void setApellido(String apellido) {
+		this.apellido = apellido;
+	}
+
+	public void setNumeroCelular(String numeroCelular) {
+		this.numeroCelular = numeroCelular;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public void setDni(Long dni) {
+		this.dni = dni;
+	}
+
+	public void setUbicacion(String ubicacion) {
+		this.ubicacion = ubicacion;
+	}
+    
+    
 }

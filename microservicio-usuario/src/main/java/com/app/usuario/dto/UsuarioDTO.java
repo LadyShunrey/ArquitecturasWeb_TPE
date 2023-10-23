@@ -61,6 +61,10 @@ public class UsuarioDTO {
     public Long getDni() {
         return dni;
     }
+    
+    public String getUbicacion() {
+        return ubicacion;
+    }
 
     @Override
     public String toString() {
