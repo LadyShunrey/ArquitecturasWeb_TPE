@@ -13,11 +13,13 @@
         <option value="$PROJECT_DIR$/microservicio-monopatin/pom.xml" />
         <option value="$PROJECT_DIR$/microservicio-administrador/pom.xml" />
         <option value="$PROJECT_DIR$/microservicio-parada/pom.xml" />
+        <option value="$PROJECT_DIR$/microservicio-administracion/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
       <set>
         <option value="$PROJECT_DIR$/microservicio-cuenta/pom.xml" />
+        <option value="$PROJECT_DIR$/microservicio-mantenimiento/pom.xml" />
         <option value="$PROJECT_DIR$/microservicio-parada/pom.xml" />
       </set>
     </option>

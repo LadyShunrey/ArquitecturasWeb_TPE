@@ -7,21 +7,21 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="microservicio-viaje" />
-        <module name="microservicio-mantenimiento" />
+        <module name="microservicio-administracion" />
         <module name="microservicio-usuario" />
-        <module name="microservicio-administrador" />
         <module name="microservicio-pago" />
         <module name="microservicio-monopatin" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="microservicio-cuenta" target="17" />
+      <module name="microservicio-mantenimiento" target="17" />
       <module name="microservicio-parada" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="microservicio-administrador" options="-parameters" />
+      <module name="microservicio-administracion" options="-parameters" />
       <module name="microservicio-cuenta" options="-parameters" />
       <module name="microservicio-mantenimiento" options="-parameters" />
       <module name="microservicio-monopatin" options="-parameters" />

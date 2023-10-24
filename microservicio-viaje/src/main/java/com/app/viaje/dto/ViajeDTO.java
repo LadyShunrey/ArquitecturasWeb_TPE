@@ -29,15 +29,13 @@ public class ViajeDTO {
 	
 	private Double precioTotal;
 
-	public ViajeDTO(Long idViaje, LocalDate fechaInicio, LocalDate fechaFin, Double kilometros, Double tafifaBasica,
-			Double tarifaExtra, LocalTime tiempoPausa, LocalTime tiempoTotal, Double precioTotal) {
+	public ViajeDTO(Long idViaje, LocalDate fechaInicio, LocalDate fechaFin, Double kilometros, LocalTime tiempoPausa, LocalTime tiempoTotal, Double precioTotal) {
 		
 		this.idViaje = idViaje;
 		this.fechaInicio = fechaInicio;
 		this.fechaFin = fechaFin;
 		this.kilometros = kilometros;
-		this.tafifaBasica = tafifaBasica;
-		this.tarifaExtra = tarifaExtra;
+
 		this.tiempoPausa = tiempoPausa;
 		this.tiempoTotal = tiempoTotal;
 		this.precioTotal = precioTotal;

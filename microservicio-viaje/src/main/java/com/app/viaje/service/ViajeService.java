@@ -26,15 +26,15 @@ public class ViajeService {
         }
     }
 
-    public List<ViajeDTO> getAllMonopatinOrderByID() {
+    public List<ViajeDTO> getAllViajes() {
         return this.viajeRepository.getAllViajes().stream()
-                .map(viaje -> new ViajeDTO(viaje.getIdViaje(), viaje.getFechaInicio(), viaje.getFechaFin(), viaje.getKilometros, viaje.getTiempoPausa()))
+                .map(viaje -> new ViajeDTO(viaje.getIdViaje(), viaje.getFechaInicio(), viaje.getFechaFin(), viaje.getKilometros(), viaje.getTiempoPausa(), viaje.getTiempoTotal(),viaje.getPrecioTotal()))
                 .toList();
 
     }
 
-    public void eliminarMonopatin(Long idMonopatin) {
-        this.viajeRepository.delete(idViaje);
+    public void eliminarViaje(Long idViaje) {
+        this.viajeRepository.deleteById(idViaje);
     }
 
 
