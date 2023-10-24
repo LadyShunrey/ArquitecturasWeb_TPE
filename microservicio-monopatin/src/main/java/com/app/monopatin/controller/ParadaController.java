@@ -6,9 +6,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.app.parada.domain.Parada;
-import com.app.parada.dto.ParadaDTO;
-import com.app.parada.service.ParadaService;
+import com.app.monopatin.domain.Parada;
+import com.app.monopatin.dto.ParadaDTO;
+import com.app.monopatin.service.ParadaService;
 
 @RestController
 @RequestMapping("api/paradas")

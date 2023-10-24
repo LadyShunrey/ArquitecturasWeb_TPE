@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import com.app.cuenta.domain.Cuenta;
+import com.app.usuario.domain.Cuenta;
 
 @Repository
 public interface CuentaRepository extends JpaRepository<Cuenta, Long>{

@@ -4,9 +4,9 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
-import com.app.cuenta.domain.Cuenta;
-import com.app.cuenta.dto.CuentaDTO;
-import com.app.cuenta.repository.CuentaRepository;
+import com.app.usuario.domain.Cuenta;
+import com.app.usuario.dto.CuentaDTO;
+import com.app.usuario.repository.CuentaRepository;
 
 import jakarta.transaction.Transactional;
 
