@@ -1,4 +1,4 @@
-package com.app.cuenta.domain;
+package com.app.usuario.domain;
 
 import java.time.LocalDate;
 

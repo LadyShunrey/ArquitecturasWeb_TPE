@@ -1,4 +1,4 @@
-package com.app.parada.domain;
+package com.app.monopatin.domain;
 
 
 

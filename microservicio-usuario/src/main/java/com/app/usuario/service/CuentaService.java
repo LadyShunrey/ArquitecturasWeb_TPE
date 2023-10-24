@@ -1,8 +1,7 @@
-package com.app.cuenta.service;
+package com.app.usuario.service;
 
 import java.util.Optional;
 
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 
 import com.app.cuenta.domain.Cuenta;

@@ -1,4 +1,4 @@
-package com.app.parada.dto;
+package com.app.monopatin.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 

@@ -1,4 +1,4 @@
-package com.app.cuenta.controller;
+package com.app.usuario.controller;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;

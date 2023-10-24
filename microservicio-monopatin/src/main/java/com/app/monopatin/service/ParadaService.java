@@ -1,12 +1,12 @@
-package com.app.parada.service;
+package com.app.monopatin.service;
 
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.app.parada.domain.Parada;
-import com.app.parada.dto.ParadaDTO;
-import com.app.parada.repository.ParadaRepository;
+import com.app.monopatin.domain.Parada;
+import com.app.monopatin.dto.ParadaDTO;
+import com.app.monopatin.repository.ParadaRepository;
 
 import jakarta.transaction.Transactional;
 

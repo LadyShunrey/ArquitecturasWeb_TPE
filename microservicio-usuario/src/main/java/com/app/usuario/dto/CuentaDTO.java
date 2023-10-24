@@ -1,4 +1,4 @@
-package com.app.cuenta.dto;
+package com.app.usuario.dto;
 
 import java.time.LocalDate;
 

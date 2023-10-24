@@ -1,4 +1,4 @@
-package com.app.parada.controller;
+package com.app.monopatin.controller;
 
 import java.util.List;
 

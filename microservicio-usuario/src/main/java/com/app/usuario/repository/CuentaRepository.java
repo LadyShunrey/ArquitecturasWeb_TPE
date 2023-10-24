@@ -1,4 +1,4 @@
-package com.app.cuenta.repository;
+package com.app.usuario.repository;
 
 import java.util.Optional;
 
