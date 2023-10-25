@@ -10,8 +10,5 @@ import com.app.monopatin.domain.Parada;
 
 @Repository
 public interface ParadaRepository extends JpaRepository<Parada, Long>{
-	
-	@Query("FROM Parada p")
-	public List<Parada> listarParadas();
-	
+
 }

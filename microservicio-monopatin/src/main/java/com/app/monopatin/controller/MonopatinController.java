@@ -22,10 +22,10 @@ public class MonopatinController {
 	
 	@GetMapping("")
 	public List<MonopatinDTO> getAll(){
-		return this.monopatinService.getAllMonopatinOrderByID();
+		return this.monopatinService.listarMonopatinesOrdenadosPorId();
     }
 	@GetMapping("/monopatin/{id}")
-	public Optional<MonopatinDTO> getMonopatinById(Long idMonopatin){
+	public Optional<MonopatinDTO> getMonopatinById(@PathVariable Long idMonopatin){
 		return this.monopatinService.getMonopatinById(idMonopatin);
 	}
 	
@@ -35,8 +35,13 @@ public class MonopatinController {
 	}
 
 	@PostMapping("")
-	public Monopatin agregarMonopatin(Monopatin monopatin) throws Exception {
+	public Monopatin agregarMonopatin (Monopatin monopatin) throws Exception {
 		return this.monopatinService.agregarMonopatin(monopatin);
+	}
+
+	@PutMapping("")
+	public Monopatin actualizarMonopatin (Monopatin monopatin){
+		return this.monopatinService.actualizarMonopatin(monopatin);
 	}
 
 }

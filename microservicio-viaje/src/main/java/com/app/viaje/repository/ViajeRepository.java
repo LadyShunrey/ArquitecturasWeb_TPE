@@ -11,8 +11,6 @@ import java.util.List;
 @Repository
 public interface ViajeRepository extends JpaRepository<Viaje, Long> {
 
-    @Query("FROM Viaje v")
-    public List<Viaje> getAllViajes();
 
 
 

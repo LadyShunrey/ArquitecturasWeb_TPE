@@ -20,15 +20,15 @@ public class MonopatinService {
 	}
 	
 	@Transactional
-	public Monopatin save(Monopatin entity) throws Exception {
+	public Monopatin agregarMonopatin(Monopatin monopatin) throws Exception {
 		try {
-			return this.monopatinRepository.save(entity);
+			return this.monopatinRepository.save(monopatin);
 		} catch (Exception e) {
 			throw new Exception(e.getMessage());
 		}
 	}
-	
-	public List<MonopatinDTO> getAllMonopatinOrderByID() {
+
+	public List<MonopatinDTO> listarMonopatinesOrdenadosPorId() {
 		return this.monopatinRepository.getAllMonopatinOrderByID().stream()
 				.map(monopatin -> new MonopatinDTO(monopatin.getIdMonopatin(), monopatin.isEnMantenimiento(), monopatin.getLatitud(), monopatin.getLongitud()))
 				.toList();
@@ -40,15 +40,7 @@ public class MonopatinService {
 	}
 
 	@Transactional
-	public Monopatin agregarMonopatin (Monopatin monopatin) throws Exception{
-		try {
-			return this.monopatinRepository.save(monopatin);
-		}
-		catch(Exception e) {
-			throw new Exception(e.getMessage());
-		}
-	}
-	public Monopatin actualizarUsuario(Monopatin monopatin) {
+	public Monopatin actualizarMonopatin (Monopatin monopatin) {
 		// Obtenemos el registro a actualizar
 		Monopatin registroActualizado = monopatinRepository.findById(monopatin.getIdMonopatin()).orElseThrow();
 
@@ -63,7 +55,7 @@ public class MonopatinService {
 		return registroActualizado;
 	}
 
-
+	@Transactional
 	public Optional<MonopatinDTO> getMonopatinById(Long idMonopatin) {
 		return this.monopatinRepository.findById(idMonopatin).map(monopatin->new MonopatinDTO(monopatin.getIdMonopatin(), monopatin.isEnMantenimiento(), monopatin.getLatitud(), monopatin.getLongitud()));
 	}

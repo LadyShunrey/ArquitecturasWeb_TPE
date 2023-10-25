@@ -11,6 +11,4 @@ import java.util.Optional;
 @Repository
 public interface TarifaRepository extends JpaRepository<Tarifa, Long> {
 
-    @Query("FROM Tarifa t WHERE t.idTarifa = :idTarifa")
-    Optional<Tarifa> getTarifaById(Long idTarifa);
 }

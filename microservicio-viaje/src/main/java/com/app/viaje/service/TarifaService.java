@@ -8,6 +8,7 @@ import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 import static org.hibernate.sql.ast.SqlTreeCreationLogger.LOGGER;
 
@@ -23,10 +24,13 @@ public class TarifaService {
         this.tarifaRepository = tarifaRepository;
     }
 
-    public List<TarifaDTO> getTarifaById(Long idTarifa){
-        return this.tarifaRepository.getTarifaById(idTarifa).stream()
-                .map(tarifa -> new TarifaDTO(tarifa.getIdTarifa(), tarifa.getTarifaRegular(), tarifa.getTarifaPausa(), tarifa.getTarifaExtra()))
-                .toList();
+    public List<TarifaDTO> listarTarifas(){
+        return this.tarifaRepository.findAll().stream().map(tarifa->new TarifaDTO(tarifa.getIdTarifa(), tarifa.getTarifaRegular(), tarifa.getTarifaPausa(), tarifa.getTarifaExtra())).toList();
+    }
+
+    @Transactional
+    public Optional<TarifaDTO> buscarTarifaPorId(Long idTarifa){
+        return this.tarifaRepository.findById(idTarifa).map(tarifa -> new TarifaDTO(tarifa.getIdTarifa(), tarifa.getTarifaRegular(), tarifa.getTarifaPausa(), tarifa.getTarifaExtra()));
     }
 
     public void eliminarTarifa(Long idTarifa) {
@@ -34,11 +38,18 @@ public class TarifaService {
     }
 
     @Transactional
-    public boolean actualizarTarifa(Tarifa tarifa) {
-        if (!this.tarifaRepository.existsById(tarifa.getIdTarifa()))
-            return false;
-        this.tarifaRepository.save(tarifa);
-        return true;
+    public Tarifa actualizarTarifa(Tarifa tarifa) {
+        // Obtenemos el registro a actualizar
+        Tarifa registroActualizado = tarifaRepository.findById(tarifa.getIdTarifa()).orElseThrow();
+
+        // Actualizamos los datos que queremos modificar
+        registroActualizado.setTarifaRegular(tarifa.getTarifaRegular());
+        registroActualizado.setTarifaPausa(tarifa.getTarifaPausa());
+        registroActualizado.setTarifaExtra(tarifa.getTarifaExtra());
+
+        // Guardamos el registro actualizado
+        tarifaRepository.save(registroActualizado);
+        return registroActualizado;
     }
 
     @Transactional

@@ -28,7 +28,7 @@ public class UsuarioController {
     }
 
     @PutMapping("")//preguntar que es lo que hay que poner acá
-    public Usuario actualizarUsuario(Usuario usuario){
+    public Usuario actualizarUsuario (Usuario usuario){
         return this.usuarioService.actualizarUsuario(usuario);
     }
 

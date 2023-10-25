@@ -5,6 +5,7 @@ import com.app.usuario.dto.UsuarioDTO;
 import com.app.usuario.repository.UsuarioRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
@@ -18,15 +19,15 @@ public class UsuarioService {
     }
 
     @Transactional
-    public Usuario agregarUsuario(Usuario entity) throws Exception{
+    public Usuario agregarUsuario(Usuario usuario) throws Exception {
         try {
-            return this.usuarioRepository.save(entity);
+            return this.usuarioRepository.save(usuario);
         }
         catch(Exception e) {
             throw new Exception(e.getMessage());
         }
     }
-
+    @Transactional
     public Usuario actualizarUsuario(Usuario usuario) {
         // Obtenemos el registro a actualizar
         Usuario registroActualizado = usuarioRepository.findById(usuario.getIdUsuario()).orElseThrow();
@@ -41,14 +42,13 @@ public class UsuarioService {
 
         return registroActualizado;
     }
-
-   public void eliminarUsuario(Long dni){
+    public void eliminarUsuario(Long dni){
         this.usuarioRepository.eliminarUsuarioPorDni(dni);
    }
-
-   public Optional<UsuarioDTO> buscarUsuarioPorDni(Long dni){
+    @Transactional
+    public Optional<UsuarioDTO> buscarUsuarioPorDni(@PathVariable Long dni){
        return this.usuarioRepository.buscarPorDni(dni).map(usuario->new UsuarioDTO(usuario.getIdUsuario(), usuario.getNombreUsuario(), usuario.getNombre(), usuario.getApellido(), usuario.getNumeroCelular(), usuario.getEmail(), usuario.getDni(), usuario.getLatitud(), usuario.getLongitud()));
-   }
+    }
 
     public List<UsuarioDTO> listarUsuarios() {
         return this.usuarioRepository.findAll().stream().map(usuario->new UsuarioDTO(usuario.getIdUsuario(), usuario.getNombreUsuario(), usuario.getNombre(), usuario.getApellido(), usuario.getNumeroCelular(), usuario.getEmail(), usuario.getDni(), usuario.getLatitud(), usuario.getLongitud())).toList();

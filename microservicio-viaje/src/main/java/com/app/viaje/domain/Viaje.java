@@ -37,7 +37,6 @@ public class Viaje {
 	@Column(name="kilometros")
 	private Double kilometros;
 
-
 	//boolean enPausa?
 	
 	//tiempo en pausa
