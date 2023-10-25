@@ -18,24 +18,19 @@ public class ViajeDTO {
 	private LocalDate fechaFin;
 	
 	private Double kilometros;
+
+	private Double tiempoPausa;
 	
-	private Double tafifaBasica;
-	
-	private Double tarifaExtra;
-	
-	private LocalTime tiempoPausa; 
-	
-	private LocalTime tiempoTotal; 
+	private Double tiempoTotal;
 	
 	private Double precioTotal;
 
-	public ViajeDTO(Long idViaje, LocalDate fechaInicio, LocalDate fechaFin, Double kilometros, LocalTime tiempoPausa, LocalTime tiempoTotal, Double precioTotal) {
+	public ViajeDTO(Long idViaje, LocalDate fechaInicio, LocalDate fechaFin, Double kilometros, Double tiempoPausa, Double tiempoTotal, Double precioTotal) {
 		
 		this.idViaje = idViaje;
 		this.fechaInicio = fechaInicio;
 		this.fechaFin = fechaFin;
 		this.kilometros = kilometros;
-
 		this.tiempoPausa = tiempoPausa;
 		this.tiempoTotal = tiempoTotal;
 		this.precioTotal = precioTotal;
@@ -73,35 +68,19 @@ public class ViajeDTO {
 		this.kilometros = kilometros;
 	}
 
-	public Double getTafifaBasica() {
-		return tafifaBasica;
-	}
-
-	public void setTafifaBasica(Double tafifaBasica) {
-		this.tafifaBasica = tafifaBasica;
-	}
-
-	public Double getTarifaExtra() {
-		return tarifaExtra;
-	}
-
-	public void setTarifaExtra(Double tarifaExtra) {
-		this.tarifaExtra = tarifaExtra;
-	}
-
-	public LocalTime getTiempoPausa() {
+	public Double getTiempoPausa() {
 		return tiempoPausa;
 	}
 
-	public void setTiempoPausa(LocalTime tiempoPausa) {
+	public void setTiempoPausa(Double tiempoPausa) {
 		this.tiempoPausa = tiempoPausa;
 	}
 
-	public LocalTime getTiempoTotal() {
+	public Double getTiempoTotal() {
 		return tiempoTotal;
 	}
 
-	public void setTiempoTotal(LocalTime tiempoTotal) {
+	public void setTiempoTotal(Double tiempoTotal) {
 		this.tiempoTotal = tiempoTotal;
 	}
 
@@ -116,9 +95,8 @@ public class ViajeDTO {
 	@Override
 	public String toString() {
 		return "ViajeDTO [idViaje=" + idViaje + ", fechaInicio=" + fechaInicio + ", fechaFin=" + fechaFin
-				+ ", kilometros=" + kilometros + ", tafifaBasica=" + tafifaBasica + ", tarifaExtra=" + tarifaExtra
-				+ ", tiempoPausa=" + tiempoPausa + ", tiempoTotal=" + tiempoTotal + ", precioTotal=" + precioTotal
-				+ "]";
+				+ ", kilometros=" + kilometros + ", tiempoPausa=" + tiempoPausa + ", tiempoTotal=" + tiempoTotal
+				+ ", precioTotal=" + precioTotal + "]";
 	}
 	
 	

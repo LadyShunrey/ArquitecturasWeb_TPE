@@ -1,22 +1,19 @@
 package com.app.usuario.domain;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import lombok.Data;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import jakarta.persistence.*;
+import lombok.*;
 
 @Data
 @Getter
 @Setter
 @Entity
 @NoArgsConstructor
+@AllArgsConstructor
 public class Cuenta {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -25,22 +22,22 @@ public class Cuenta {
 	@Column(name="fecha_alta")
 	private LocalDate fechaAlta;
 	
-//	@Column(name="cuenta_pago")
-//	private String cuentaPago;
+	@Column(name="cuenta_pago")
+	private String cuentaPago;
 	
 	@Column(name="dinero_disponible")
 	private Double dineroDisponible;
 	
-	//la cuenta tiene que tener una lista de usuarios asociada
+	@OneToMany(mappedBy = "cuenta", cascade = CascadeType.MERGE)
+	@JsonManagedReference
+	private List<Usuario> usuarios;
 	
-//	@OneToMany(mappedBy = "cuenta", cascade = CascadeType.MERGE)
-//	@JsonManagedReference
-//	private List<Usuario> usuarios;
-	
-	public Cuenta(Long idCuenta, LocalDate fechaAlta, Double dineroDisponible) {
+	public Cuenta(Long idCuenta, LocalDate fechaAlta, String cuentaPago, Double dineroDisponible) {
 		this.idCuenta = idCuenta;
 		this.fechaAlta = fechaAlta;
+		this.cuentaPago = cuentaPago;
 		this.dineroDisponible = dineroDisponible;
+		this.usuarios = new ArrayList<Usuario>();
 	}
 
 	public Long getIdCuenta() {
@@ -49,6 +46,14 @@ public class Cuenta {
 
 	public void setIdCuenta(Long idCuenta) {
 		this.idCuenta = idCuenta;
+	}
+
+	public String getCuentaPago() {
+		return cuentaPago;
+	}
+
+	public void setCuentaPago(String cuentaPago) {
+		this.cuentaPago = cuentaPago;
 	}
 
 	public LocalDate getFechaAlta() {
@@ -66,4 +71,6 @@ public class Cuenta {
 	public void setDineroDisponible(Double dineroDisponible) {
 		this.dineroDisponible = dineroDisponible;
 	}
+
+
 }

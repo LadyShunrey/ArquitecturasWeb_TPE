@@ -6,6 +6,7 @@ import com.app.usuario.repository.UsuarioRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -17,7 +18,7 @@ public class UsuarioService {
     }
 
     @Transactional
-    public Usuario guardarUsuario(Usuario entity) throws Exception{
+    public Usuario agregarUsuario(Usuario entity) throws Exception{
         try {
             return this.usuarioRepository.save(entity);
         }
@@ -42,11 +43,14 @@ public class UsuarioService {
     }
 
    public void eliminarUsuario(Long dni){
-       this.usuarioRepository.eliminarUsuarioPorDni(dni);
+        this.usuarioRepository.eliminarUsuarioPorDni(dni);
    }
 
-   public Optional<UsuarioDTO> buscarPorDni(Long dni){
-       return this.usuarioRepository.buscarPorDni(dni).map(usuario->new UsuarioDTO(usuario.getIdUsuario(), usuario.getNombreUsuario(), usuario.getNombre(), usuario.getApellido(), usuario.getNumeroCelular(), usuario.getEmail(), usuario.getDni(), usuario.getUbicacion()));
+   public Optional<UsuarioDTO> buscarUsuarioPorDni(Long dni){
+       return this.usuarioRepository.buscarPorDni(dni).map(usuario->new UsuarioDTO(usuario.getIdUsuario(), usuario.getNombreUsuario(), usuario.getNombre(), usuario.getApellido(), usuario.getNumeroCelular(), usuario.getEmail(), usuario.getDni(), usuario.getLatitud(), usuario.getLongitud()));
    }
 
+    public List<UsuarioDTO> listarUsuarios() {
+        return this.usuarioRepository.findAll().stream().map(usuario->new UsuarioDTO(usuario.getIdUsuario(), usuario.getNombreUsuario(), usuario.getNombre(), usuario.getApellido(), usuario.getNumeroCelular(), usuario.getEmail(), usuario.getDni(), usuario.getLatitud(), usuario.getLongitud())).toList();
+    }
 }

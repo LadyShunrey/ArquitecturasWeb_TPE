@@ -7,16 +7,17 @@ import lombok.Data;
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class MonopatinDTO {
-	private Long idMonopatin;
-	
-	private boolean enMantenimiento;
-	
-	private String ubicacion;
 
-	public MonopatinDTO(Long idMonopatin, boolean enMantenimiento, String ubicacion) {
+	private Long idMonopatin;
+	private boolean enMantenimiento;
+	private String latitud;
+	private String longitud;
+
+	public MonopatinDTO(Long idMonopatin, boolean enMantenimiento, String latitud, String longitud) {
 		this.idMonopatin = idMonopatin;
 		this.enMantenimiento = enMantenimiento;
-		this.ubicacion = ubicacion;
+		this.latitud = latitud;
+		this.longitud = longitud;
 	}
 
 	public Long getIdMonopatin() {
@@ -35,17 +36,29 @@ public class MonopatinDTO {
 		this.enMantenimiento = enMantenimiento;
 	}
 
-	public String getUbicacion() {
-		return ubicacion;
+	public String getLatitud() {
+		return latitud;
 	}
 
-	public void setUbicacion(String ubicacion) {
-		this.ubicacion = ubicacion;
+	public void setLatitud(String latitud) {
+		this.latitud = latitud;
+	}
+
+	public String getLongitud() {
+		return longitud;
+	}
+
+	public void setLongitud(String longitud) {
+		this.longitud = longitud;
 	}
 
 	@Override
 	public String toString() {
-		return "MonopatinDTO [idMonopatin=" + idMonopatin + ", enMantenimiento=" + enMantenimiento + ", ubicacion="
-				+ ubicacion + "]";
+		return "MonopatinDTO{" +
+				"idMonopatin=" + idMonopatin +
+				", enMantenimiento=" + enMantenimiento +
+				", latitud='" + latitud + '\'' +
+				", longitud='" + longitud + '\'' +
+				'}';
 	}
 }

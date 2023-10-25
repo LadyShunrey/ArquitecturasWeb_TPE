@@ -5,6 +5,7 @@ import com.app.usuario.dto.UsuarioDTO;
 import com.app.usuario.service.UsuarioService;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -17,13 +18,13 @@ public class UsuarioController {
     }
 
     @GetMapping("/dni/{dni}")
-    public Optional<UsuarioDTO> buscarPorDni(@PathVariable Long dni){
-        return this.usuarioService.buscarPorDni(dni);
+    public Optional<UsuarioDTO> buscarUsuarioPorDni(@PathVariable Long dni){
+        return this.usuarioService.buscarUsuarioPorDni(dni);
     }
 
     @PostMapping("")
-    public Usuario guardarUsuario(Usuario usuario) throws Exception{
-        return this.usuarioService.guardarUsuario(usuario);
+    public Usuario agregarUsuario(Usuario usuario) throws Exception{
+        return this.usuarioService.agregarUsuario(usuario);
     }
 
     @PutMapping("")//preguntar que es lo que hay que poner acá
@@ -34,5 +35,10 @@ public class UsuarioController {
     @DeleteMapping("/dni/{dni}")
     public void eliminarUsuario(@PathVariable Long dni){
         this.usuarioService.eliminarUsuario(dni);
+    }
+
+    @GetMapping("")
+    public List<UsuarioDTO> listarUsuarios(){
+        return this.usuarioService.listarUsuarios();
     }
 }

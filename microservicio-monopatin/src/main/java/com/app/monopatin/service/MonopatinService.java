@@ -1,6 +1,7 @@
 package com.app.monopatin.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -29,12 +30,41 @@ public class MonopatinService {
 	
 	public List<MonopatinDTO> getAllMonopatinOrderByID() {
 		return this.monopatinRepository.getAllMonopatinOrderByID().stream()
-				.map(monopatin -> new MonopatinDTO(monopatin.getIdMonopatin(), monopatin.isEnMantenimiento(), monopatin.getUbicacion()))
+				.map(monopatin -> new MonopatinDTO(monopatin.getIdMonopatin(), monopatin.isEnMantenimiento(), monopatin.getLatitud(), monopatin.getLongitud()))
 				.toList();
 
 	}
 
 	public void eliminarMonopatin(Long idMonopatin) {
 		this.monopatinRepository.eliminarMonopatinPorID(idMonopatin);
+	}
+
+	@Transactional
+	public Monopatin agregarMonopatin (Monopatin monopatin) throws Exception{
+		try {
+			return this.monopatinRepository.save(monopatin);
+		}
+		catch(Exception e) {
+			throw new Exception(e.getMessage());
+		}
+	}
+	public Monopatin actualizarUsuario(Monopatin monopatin) {
+		// Obtenemos el registro a actualizar
+		Monopatin registroActualizado = monopatinRepository.findById(monopatin.getIdMonopatin()).orElseThrow();
+
+		// Actualizamos los datos que queremos modificar
+		registroActualizado.setKilometros(monopatin.getKilometros());
+		registroActualizado.setTiempo(monopatin.getTiempo());
+		registroActualizado.setEnMantenimiento(monopatin.isEnMantenimiento());
+
+		// Guardamos el registro actualizado
+		monopatinRepository.save(registroActualizado);
+
+		return registroActualizado;
+	}
+
+
+	public Optional<MonopatinDTO> getMonopatinById(Long idMonopatin) {
+		return this.monopatinRepository.findById(idMonopatin).map(monopatin->new MonopatinDTO(monopatin.getIdMonopatin(), monopatin.isEnMantenimiento(), monopatin.getLatitud(), monopatin.getLongitud()));
 	}
 }

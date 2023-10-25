@@ -19,15 +19,15 @@ public class ParadaService {
 	}
 	
 	@Transactional
-	public Parada save(Parada entity) throws Exception{
+	public Parada agregarParada(Parada parada) throws Exception{
 		try {
-			return this.paradaRepository.save(entity);
+			return this.paradaRepository.save(parada);
 		}catch(Exception e) {
 			throw new Exception (e.getMessage());
 		}
 	}
 	
 	public List<ParadaDTO> listarParadas(){
-		return this.paradaRepository.listarParadas().stream().map(parada -> new ParadaDTO(parada.getIdParada(), parada.getUbicacion())).toList();
+		return this.paradaRepository.listarParadas().stream().map(parada -> new ParadaDTO(parada.getIdParada(), parada.getLatitud(), parada.getLongitud())).toList();
 	}
 }

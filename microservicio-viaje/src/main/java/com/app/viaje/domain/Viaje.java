@@ -36,36 +36,26 @@ public class Viaje {
 	//kilometros recorridos
 	@Column(name="kilometros")
 	private Double kilometros;
-	
-	//tarifa basica
-	@Column(name="tarifa_basica")
-	private Double tafifaBasica;
-	
-	//tarifa extra
-	@Column(name="tarifa_extra")
-	private Double tarifaExtra;
-	
+
+
 	//boolean enPausa?
 	
 	//tiempo en pausa
 	@Column(name="tiempo_pausa")
-	private LocalTime tiempoPausa; //capaz habría que pasar todos a LocalTime?
+	private Double tiempoPausa; //capaz habría que pasar todos a LocalTime?
 	
 	@Column(name="tiempo_total")
-	private LocalTime tiempoTotal; //resta de fecha fin- inicio
+	private Double tiempoTotal; //resta de fecha fin- inicio
 	
 	//precio total del viaje
 	@Column(name="precio_total")
 	private Double precioTotal; //este es la cuenta de: tarifaBasica*(tiempoTotal-tiempoPausa) + tarifaExtra*tiempoPausa
 
-	public Viaje(Long idViaje, LocalDate fechaInicio, LocalDate fechaFin, Double kilometros, Double tafifaBasica,
-			Double tarifaExtra, LocalTime tiempoPausa, LocalTime tiempoTotal, Double precioTotal) {
+	public Viaje(Long idViaje, LocalDate fechaInicio, LocalDate fechaFin, Double kilometros, Double tiempoPausa, Double tiempoTotal, Double precioTotal) {
 		this.idViaje = idViaje;
 		this.fechaInicio = fechaInicio;
 		this.fechaFin = fechaFin;
 		this.kilometros = kilometros;
-		this.tafifaBasica = tafifaBasica;
-		this.tarifaExtra = tarifaExtra;
 		this.tiempoPausa = tiempoPausa;
 		this.tiempoTotal = tiempoTotal;
 		this.precioTotal = precioTotal;
@@ -103,40 +93,24 @@ public class Viaje {
 		this.kilometros = kilometros;
 	}
 
-	public Double getTafifaBasica() {
-		return tafifaBasica;
-	}
-
-	public void setTafifaBasica(Double tafifaBasica) {
-		this.tafifaBasica = tafifaBasica;
-	}
-
-	public Double getTarifaExtra() {
-		return tarifaExtra;
-	}
-
-	public void setTarifaExtra(Double tarifaExtra) {
-		this.tarifaExtra = tarifaExtra;
-	}
-
-	public LocalTime getTiempoPausa() {
+	public Double getTiempoPausa() {
 		return tiempoPausa;
 	}
 
-	public void setTiempoPausa(LocalTime tiempoPausa) {
+	public void setTiempoPausa(Double tiempoPausa) {
 		this.tiempoPausa = tiempoPausa;
 	}
 
-	public LocalTime getTiempoTotal() {
+	public Double getTiempoTotal() {
 		return tiempoTotal;
 	}
 
-	public void setTiempoTotal(LocalTime tiempoTotal) {
+	public void setTiempoTotal(Double tiempoTotal) {
 		this.tiempoTotal = tiempoTotal;
 	}
 
-	public Double getPrecioTotal() {
-		return precioTotal;
+	public Double getPrecioTotal(Tarifa tarifa) {
+		return precioTotal = tarifa.getTarifaRegular() * (tiempoTotal-tiempoPausa) + tarifa.getTarifaPausa() * tiempoPausa;
 	}
 
 	public void setPrecioTotal(Double precioTotal) {

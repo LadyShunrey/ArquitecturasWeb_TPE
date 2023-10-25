@@ -11,11 +11,13 @@ import lombok.Data;
 public class CuentaDTO {
 	private Long idCuenta;
 	private LocalDate fechaAlta;
+	private String cuentaPago;
 	private Double dineroDisponible;
 	
-	public CuentaDTO(Long idCuenta, LocalDate fechaAlta, Double dineroDisponible) {
+	public CuentaDTO(Long idCuenta, LocalDate fechaAlta, String cuentaPago, Double dineroDisponible) {
 		this.idCuenta = idCuenta;
 		this.fechaAlta = fechaAlta;
+		this.cuentaPago = cuentaPago;
 		this.dineroDisponible = dineroDisponible;
 	}
 

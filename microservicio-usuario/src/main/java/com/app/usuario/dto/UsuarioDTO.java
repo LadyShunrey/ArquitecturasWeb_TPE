@@ -6,23 +6,18 @@ import lombok.Data;
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class UsuarioDTO {
+
     private Long idUsuario;
-
     private String nombreUsuario;
-
     private String nombre;
-
     private String apellido;
-
     private String numeroCelular;
-
     private String email;
-
     private Long dni;
+    private String latitud;
+    private String longitud;
 
-    private String ubicacion;
-
-    public UsuarioDTO(Long idUsuario, String nombreUsuario, String nombre, String apellido, String numeroCelular, String email, Long dni, String ubicacion) {
+    public UsuarioDTO(Long idUsuario, String nombreUsuario, String nombre, String apellido, String numeroCelular, String email, Long dni, String latitud, String longitud) {
         this.idUsuario = idUsuario;
         this.nombreUsuario = nombreUsuario;
         this.nombre = nombre;
@@ -30,9 +25,9 @@ public class UsuarioDTO {
         this.numeroCelular = numeroCelular;
         this.email = email;
         this.dni = dni;
-        this.ubicacion = ubicacion;
+        this.latitud = latitud;
+        this.longitud = longitud;
     }
-
 
     public Long getIdUsuario() {
         return idUsuario;
@@ -61,9 +56,13 @@ public class UsuarioDTO {
     public Long getDni() {
         return dni;
     }
-    
-    public String getUbicacion() {
-        return ubicacion;
+
+    public String getLatitud() {
+        return latitud;
+    }
+
+    public String getLongitud() {
+        return longitud;
     }
 
     @Override
